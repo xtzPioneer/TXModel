@@ -44,7 +44,7 @@
 @end
 
 ```
-* 使用实例
+* 使用示例:
 ```objc
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -81,4 +81,50 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 ```
-
+* 打印示例:
+```objc
+2018-05-29 14:26:24.085763+0800 TXModelDemo[17840:309289] people1.name:小明
+2018-05-29 14:26:24.085944+0800 TXModelDemo[17840:309289] people1.sex:男
+2018-05-29 14:26:24.086073+0800 TXModelDemo[17840:309289] people1.age:17
+2018-05-29 14:26:24.086186+0800 TXModelDemo[17840:309289] people1.occupation:(null)
+2018-05-29 14:26:24.086522+0800 TXModelDemo[17840:309289] people1.valueForJsonString:{
+  "age" : 17,
+  "sex" : "男",
+  "name" : "小明",
+  "occupation" : null
+}
+2018-05-29 14:26:24.086827+0800 TXModelDemo[17840:309289] people1.valueForKey:{
+    age = 17;
+    name = "\U5c0f\U660e";
+    occupation = "<null>";
+    sex = "\U7537";
+}
+2018-05-29 14:26:24.087065+0800 TXModelDemo[17840:309289] people1.valueForArray:(
+    17,
+    "\U7537",
+    "\U5c0f\U660e",
+    "<null>"
+)
+2018-05-29 14:26:24.087350+0800 TXModelDemo[17840:309289] people2.name:小花
+2018-05-29 14:26:24.087485+0800 TXModelDemo[17840:309289] people2.sex:女
+2018-05-29 14:26:24.087600+0800 TXModelDemo[17840:309289] people2.age:16
+2018-05-29 14:26:24.087731+0800 TXModelDemo[17840:309289] people2.occupation:学生
+2018-05-29 14:26:24.087892+0800 TXModelDemo[17840:309289] people2.valueForJsonString:{
+  "age" : 16,
+  "sex" : "女",
+  "name" : "小花",
+  "occupation" : "学生"
+}
+2018-05-29 14:26:24.088079+0800 TXModelDemo[17840:309289] people2.valueForKey:{
+    age = 16;
+    name = "\U5c0f\U82b1";
+    occupation = "\U5b66\U751f";
+    sex = "\U5973";
+}
+2018-05-29 14:26:24.088262+0800 TXModelDemo[17840:309289] people2.valueForArray:(
+    16,
+    "\U5973",
+    "\U5c0f\U82b1",
+    "\U5b66\U751f"
+)
+```
