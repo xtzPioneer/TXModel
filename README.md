@@ -31,8 +31,7 @@
 
 ```
 ### 使用方法
-#### 继承TXModel
-#### 如:TXPeople.h文件
+* 创建模型时继承TXModel类
 
 ```objc
 #import "TXModel.h"
