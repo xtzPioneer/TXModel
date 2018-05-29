@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'TXModel'
   s.version      = '1.0'
-  s.summary      = ''
+  s.summary      = '轻量级的数据转模型工具'
   s.description  = <<-DESC
 			轻量级的数据转模型工具,比你想象中的更简单、更便捷、更安全.
                    DESC
