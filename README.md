@@ -31,8 +31,8 @@
 
 ```
 ### 使用方法
-* ## 继承TXModel
-* ## 如:TXPeople.h文件
+* 继承TXModel
+* 如:TXPeople.h文件
 
 ```objc
 #import "TXModel.h"
