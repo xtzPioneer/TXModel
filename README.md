@@ -1,7 +1,7 @@
 # TXModel
 * 轻量级的数据转模型工具,比你想象中的更简单、更便捷、更安全
 
-# ### TXModel优点
+### TXModel优点
 * 不但比MJExtension体积更小而且依然能完成MJExtension的同等功能
 * 方法较低层利于封装和扩展
 * 依赖性几乎为零
