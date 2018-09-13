@@ -10,7 +10,10 @@
 
 @implementation TXModel
 
-/*字典初始化*/
+/**
+ *  使用字典初始化 (对象方法)
+ *  @param dictionary 字典 (必填)
+ */
 - (instancetype)initWithDictionary:(NSDictionary*)dictionary{
     if (self = [super init]) {
         unsigned int outCount;
@@ -30,12 +33,18 @@
     return self;
 }
 
+/**
+ *  使用字典初始化 (类方法)
+ *  @param dictionary 字典 (必填)
+ */
 + (instancetype)modelWithDictionary:(NSDictionary*)dictionary{
     return [[self alloc]initWithDictionary:dictionary];
 }
 
-
-/*json初始化*/
+/**
+ *  使用Json初始化 (对象方法)
+ *  @param jsonString Json字符串 (必填)
+ */
 - (instancetype)initWithJsonString:(NSString*)jsonString{
     if (self = [super init]) {
         NSDictionary * dict=[TXModel dictionaryWithJsonString:jsonString];
@@ -56,11 +65,17 @@
     return self;
 }
 
+/**
+ *  使用Json初始化 (类方法)
+ *  @param jsonString Json字符串 (必填)
+ */
 + (instancetype)modelWithJsonString:(NSString*)jsonString{
     return [[TXModel alloc]initWithJsonString:jsonString];
 }
 
-/*获取对象的值*/
+/**
+ *  获取对象的值
+ */
 + (NSDictionary*)objectValue:(id)obj{
     if (!obj) return nil;
     NSMutableDictionary * dict = [NSMutableDictionary dictionary];
@@ -80,7 +95,9 @@
     return dict;
 }
 
-/*获取对象内部*/
+/**
+ *  获取对象内部
+ */
 + (id)objectInternal:(id)obj{
     if (!obj) return nil;
     if([obj isKindOfClass:[NSString class]]
@@ -109,7 +126,10 @@
     return [self objectValue:obj];
 }
 
-/*字典转化为数组*/
+/**
+ *  字典转化为数组
+ *  @param dictionary 字典 (必填)
+ */
 + (NSArray*)dictionaryTransitionsAarrayWithDictionary:(NSDictionary*)dictionary{
     if (!dictionary) return nil;
     NSMutableArray * muArray=[NSMutableArray array];
@@ -120,17 +140,24 @@
     return muArray;
 }
 
-/*当前对象的值*/
+/**
+ *  当前对象的值
+ */
 - (NSDictionary*)valueForKey{
     return [TXModel objectValue:self];
 }
 
-/*当前对象的值的集合*/
+/**
+ *  当前对象的值的集合
+ */
 - (NSArray*)valueForArray{
     return [TXModel dictionaryTransitionsAarrayWithDictionary:self.valueForKey];
 }
 
-/*json转字典*/
+/**
+ *  Json转字典
+ *  @param jsonString Json字符串 (必填)
+ */
 + (NSDictionary*)dictionaryWithJsonString:(NSString *)jsonString{
     if (!jsonString) return nil;
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
@@ -140,7 +167,10 @@
     return dic;
 }
 
-/*字典转json*/
+/**
+ *  字典转Json
+ *  @param dictionary 字典 (必填)
+ */
 + (NSString*)jsonStringWithDictionary:(NSDictionary*)dictionary{
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:&error];
@@ -151,9 +181,29 @@
     return jsonString;
 }
 
-/*当前对象的Json*/
+/**
+ *  当前对象的Json
+ */
 - (NSString*)valueForJsonString{
     return [TXModel jsonStringWithDictionary:self.valueForKey];
+}
+
+/**
+ *  批量将数据转成该类模型集合
+ *  @param dictionarys 字典集合 (必填)
+ */
++ (NSArray*)arrayOfModelsFromDictionarys:(NSArray<NSDictionary*>*)dictionarys{
+    if (!dictionarys){
+        return nil;
+    }else if ([dictionarys isEqual:[NSNull class]]){
+        return nil;
+    }else{
+        NSMutableArray*list=[NSMutableArray arrayWithCapacity:[dictionarys count]];
+        for (NSDictionary*dictionary in dictionarys) {
+            [list addObject:[[self alloc]initWithDictionary:dictionary]];
+        }
+        return list;
+    }
 }
 
 @end
